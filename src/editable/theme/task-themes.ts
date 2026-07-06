@@ -2,19 +2,17 @@ import type { CSSProperties } from 'react'
 import type { TaskKey } from '@/lib/site-config'
 
 /*
-  Yelp-style task surfaces.
+  Task surface theme — reference: visiomate.webflow.io.
 
-  Every task (archive + detail) now shares one cohesive premium identity:
-  clean white surfaces, the signature Yelp red accent, hairline gray borders
-  and a single crisp sans-serif — exactly like Yelp. Per-task copy (kicker /
-  note) still varies so each section keeps a little voice, but the visual
-  language is unified. Tokens are delivered via CSS variables (`--tk-*`).
+  Single shared visual language for every task (`--tk-*` tokens): white
+  surfaces, soft-purple wash raised, warm-black ink, purple accent, warm
+  orange as secondary. Per-task copy (kicker / note) varies. Only two
+  tasks surface publicly: pdf → "Reference Library", profile → "Contributor"
+  (contributor label appears ONLY on the profile detail page).
 */
 
 export type TaskTheme = {
-  /** short flavour word shown as an eyebrow kicker */
   kicker: string
-  /** one-line mood note for the page intro */
   note: string
   dark: boolean
   fontDisplay: string
@@ -32,41 +30,49 @@ export type TaskTheme = {
   radius: string
 }
 
-const YELP_FONT = "'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
+const SATOSHI = "'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
 
-// Shared Yelp palette — every task inherits this; only kicker/note differ.
 const base = {
   dark: false,
-  fontDisplay: YELP_FONT,
-  fontBody: YELP_FONT,
+  fontDisplay: SATOSHI,
+  fontBody: SATOSHI,
   bg: '#ffffff',
   surface: '#ffffff',
-  raised: '#f7f7f7',
+  raised: '#f6f4ff',
   text: '#1a1a1a',
-  muted: '#6b6b6b',
-  line: '#e6e6e6',
-  accent: '#d32323',
-  accentSoft: '#fdecec',
+  muted: '#595959',
+  line: '#e9e9e9',
+  accent: '#6950e8',
+  accentSoft: '#efeaff',
   onAccent: '#ffffff',
-  glow: 'rgba(211,35,35,0.06)',
-  radius: '0.75rem',
+  glow: 'rgba(105,80,232,0.18)',
+  radius: '1.5rem',
 } satisfies Omit<TaskTheme, 'kicker' | 'note'>
 
 export const taskThemes: Record<TaskKey, TaskTheme> = {
-  article: { ...base, kicker: 'Articles', note: 'In-depth reads, guides and stories worth your time.' },
-  listing: { ...base, kicker: 'Businesses', note: 'Find, compare and connect with local businesses.' },
-  classified: { ...base, kicker: 'Marketplace', note: 'Fresh offers and listings, ready to act on.' },
-  image: { ...base, kicker: 'Photos', note: 'A visual feed of standout images and galleries.' },
-  sbm: { ...base, kicker: 'Bookmarks', note: 'Curated resources and links worth saving.' },
-  pdf: { ...base, kicker: 'Documents', note: 'Downloadable guides, reports and references.' },
-  profile: { ...base, kicker: 'People', note: 'Discover creators, businesses and profiles.' },
+  article: { ...base, kicker: 'Read', note: 'Long-form reads worth your time.' },
+  listing: { ...base, kicker: 'Directory', note: 'Discover and compare directly.' },
+  classified: { ...base, kicker: 'Notices', note: 'Fresh offers, ready to act on.' },
+  image: { ...base, kicker: 'Visuals', note: 'A visual feed of standout imagery.' },
+  sbm: { ...base, kicker: 'Saved', note: 'Curated resources and links worth keeping.' },
+  // pdf public label = "Reference Library"; item kicker = "Reference document"
+  pdf: {
+    ...base,
+    kicker: 'Reference document',
+    note: 'A downloadable guide from the Reference Library — cite, share, and reuse.',
+  },
+  // profile display label = "Contributor" — only appears on profile detail page
+  profile: {
+    ...base,
+    kicker: 'Contributor',
+    note: 'The person behind the reference — bio, links, and their contributions.',
+  },
 }
 
 export function getTaskTheme(task: TaskKey): TaskTheme {
-  return taskThemes[task] || taskThemes.article
+  return taskThemes[task] || taskThemes.pdf
 }
 
-/** All `--tk-*` tokens + font overrides for a task surface, ready for `style`. */
 export function taskThemeStyle(task: TaskKey): CSSProperties {
   const t = getTaskTheme(task)
   return {
@@ -81,8 +87,6 @@ export function taskThemeStyle(task: TaskKey): CSSProperties {
     '--tk-on-accent': t.onAccent,
     '--tk-glow': t.glow,
     '--tk-radius': t.radius,
-    // Re-point the shared article-body accent vars so post HTML (headings,
-    // links) inherits this task's accent instead of the global site accent.
     '--slot4-accent': t.accent,
     '--slot4-accent-fill': t.accent,
     '--editable-font-display': t.fontDisplay,
