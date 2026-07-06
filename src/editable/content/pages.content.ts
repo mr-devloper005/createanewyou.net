@@ -1,159 +1,179 @@
 import { slot4BrandConfig } from '@/editable/theme/brand.config'
 
+/*
+  Page copy — Reference-Library-first. No mentions of profiles in
+  publicly-visible surfaces. Auth and Create copy centers on
+  contributing references, never on profile creation.
+*/
+
+const REFERENCE_LIBRARY = 'Reference Library'
+
 export const pagesContent = {
   home: {
     metadata: {
-      title: 'Stories, visuals, and discoverable content',
-      description: 'Explore articles, images, listings, and curated posts through a cleaner reading-first experience.',
-      openGraphTitle: 'Stories, visuals, and discoverable content',
-      openGraphDescription: 'Discover articles, visual posts, and connected content through a calmer reading-first experience.',
-      keywords: ['story platform', 'article site', 'visual content', 'content discovery'],
+      title: `${REFERENCE_LIBRARY} — guides, reports and citeable references`,
+      description: `A curated ${REFERENCE_LIBRARY} of downloadable guides, reports and references, organized by topic and free to cite.`,
+      openGraphTitle: `The ${REFERENCE_LIBRARY}`,
+      openGraphDescription: `Everything worth referencing, in one calm library.`,
+      keywords: ['reference library', 'guides', 'reports', 'downloadable resources', 'citation'],
     },
     hero: {
-      badge: 'Latest stories and visuals',
-      title: ['A thoughtful home for', 'stories, visuals, and discovery.'],
-      description: 'Explore fresh articles, image-led posts, and discoverable content across the platform through a calmer and clearer browsing experience.',
-      primaryCta: { label: 'Read latest stories', href: '/article' },
-      secondaryCta: { label: 'Explore visuals', href: '/image' },
-      searchPlaceholder: 'Search stories, visuals, listings, and more',
+      badge: 'The reference-first way to research',
+      title: [
+        `Everything worth referencing —`,
+        `in one calm ${REFERENCE_LIBRARY}.`,
+      ],
+      description: `Browse a growing ${REFERENCE_LIBRARY} of guides, reports and downloadable references — thoughtfully organized, easy to cite and quiet on the eyes.`,
+      primaryCta: { label: `Enter the ${REFERENCE_LIBRARY}`, href: '/pdf' },
+      secondaryCta: { label: 'How it works', href: '/about' },
+      searchPlaceholder: `Search the ${REFERENCE_LIBRARY}`,
       focusLabel: 'Focus',
-      featureCardBadge: 'latest cover rotation',
-      featureCardTitle: 'Latest posts shape the visual identity of the homepage.',
-      featureCardDescription: 'Recent images and stories stay at the center of the experience without changing any core platform behavior.',
+      featureCardBadge: 'Featured reference',
+      featureCardTitle: 'The most-opened reference this week.',
+      featureCardDescription:
+        'Fresh additions and the most-cited references rotate through the featured slot automatically.',
     },
     intro: {
-      badge: 'About the platform',
-      title: 'Built for reading, browsing, and connecting different kinds of content.',
+      badge: 'About the library',
+      title: 'A quiet, reference-first way to work with knowledge.',
       paragraphs: [
-        'This site brings together article-style reading, visual browsing, and structured discovery so visitors can move naturally between different content types.',
-        'Instead of separating stories, visuals, and supporting resources into disconnected surfaces, the platform keeps them connected in one place with consistent navigation and easier exploration.',
-        'Whether someone starts with a story, an image-led post, a listing, or a resource page, they can keep discovering related content without friction.',
+        `Every entry in the ${REFERENCE_LIBRARY} is chosen for clarity, citeability and staying power — no filler, no funnel.`,
+        `References are grouped by intent, not by upload date. You can find what you need in a few clicks, download it, and get back to work.`,
+        `The library grows quietly. New references are added weekly, and every existing entry stays open access.`,
       ],
       sideBadge: 'At a glance',
       sidePoints: [
-        'Reading-first homepage with stronger emphasis on stories and imagery.',
-        'Connected sections for articles, visuals, listings, and supporting resources.',
-        'Cleaner browsing rhythm designed to make exploration feel easier.',
-        'Lightweight interactions that keep the experience fast and readable.',
+        'Curated by topic — not by feed rank.',
+        'Downloadable and citation-ready.',
+        'Search works on titles, tags and full-text.',
+        'Open access, no accounts required to read.',
       ],
-      primaryLink: { label: 'Browse articles', href: '/article' },
-      secondaryLink: { label: 'See visuals', href: '/image' },
+      primaryLink: { label: `Browse the ${REFERENCE_LIBRARY}`, href: '/pdf' },
+      secondaryLink: { label: 'Contribute a reference', href: '/create' },
     },
     cta: {
-      badge: 'Start exploring',
-      title: 'Explore articles, visuals, and resources through one connected experience.',
-      description: 'Move between articles, image-led posts, listings, and resources through one clearer and more connected visual system.',
-      primaryCta: { label: 'Browse Articles', href: '/article' },
-      secondaryCta: { label: 'Contact Sales', href: '/contact' },
+      badge: 'Start referencing today',
+      title: `Ready to open the ${REFERENCE_LIBRARY}?`,
+      description: `Skim the shelf, save what you need, or contribute a reference of your own — the library is open by design.`,
+      primaryCta: { label: 'Enter the library', href: '/pdf' },
+      secondaryCta: { label: 'Contribute a reference', href: '/create' },
     },
     taskSection: {
-      heading: 'Latest {label}',
-      descriptionSuffix: 'Browse the newest posts in this section.',
+      heading: `Latest in the ${REFERENCE_LIBRARY}`,
+      descriptionSuffix: 'Fresh additions to the shelf.',
     },
   },
   about: {
-    badge: 'Our Story',
-    title: 'A calmer, clearer way to explore content.',
-    description: `${slot4BrandConfig.siteName} is built to make long-form reading, visual discovery, and supporting resources feel like one unified experience.`,
+    badge: 'About',
+    title: `A calmer, reference-first way to explore knowledge.`,
+    description: `${slot4BrandConfig.siteName} runs a curated ${REFERENCE_LIBRARY} — guides, reports and downloadable references chosen for clarity and staying power.`,
     paragraphs: [
-      'Instead of splitting everything into disconnected pages, the platform keeps related content easy to move through and easy to understand.',
-      'Whether someone starts with an article, listing, image post, or resource page, they can continue exploring without losing context.',
+      `We keep the library organized by topic rather than by feed rank, so a search feels less like scrolling and more like arriving.`,
+      `Every reference is downloadable and citation-ready. Titles, categories and permalinks stay clean so your citations stay stable.`,
+      `The library is open access by design — no wall, no lock-in, no account required to read.`,
     ],
     values: [
       {
-        title: 'Reading-first experience',
-        description: 'We prioritize clarity, pacing, and structure so people can read, browse, and discover without noise.',
+        title: 'Curated for clarity',
+        description:
+          'Every entry is chosen for how easy it is to read, cite and reuse — not for engagement metrics.',
       },
       {
-        title: 'Connected content surfaces',
-        description: 'Articles, visual posts, listings, resources, and profiles stay connected so discovery feels natural across the site.',
+        title: 'Organized by intent',
+        description:
+          'Topics group naturally into shelves. Filters are simple. Search covers titles, tags and full-text.',
       },
       {
-        title: 'Simple and trustworthy',
-        description: 'We focus on clean navigation and clear page structure to help visitors find useful content faster.',
+        title: 'Open access',
+        description:
+          'Downloadable, citation-ready and free to reference. No paywall, no signup wall, no dark patterns.',
       },
     ],
   },
   contact: {
     eyebrow: `Contact ${slot4BrandConfig.siteName}`,
-    title: 'A support page that matches the product, not a generic contact form.',
-    description: 'Tell us what you are trying to publish, fix, or launch. We will route it through the right lane instead of forcing every request into the same support bucket.',
+    title: 'Reach the humans behind the library.',
+    description:
+      'Contribute a reference, suggest a topic, flag a correction, or explore a partnership. We reply within a couple of working days.',
     formTitle: 'Send a message',
   },
 
   search: {
     metadata: {
-      title: 'Search',
-      description: 'Search posts, topics, categories, and content across the site.',
+      title: `Search the ${REFERENCE_LIBRARY}`,
+      description: `Search titles, categories and full text across the ${REFERENCE_LIBRARY}.`,
     },
     hero: {
-      badge: 'Search the archive',
-      title: 'Find stories, listings, visuals, and resources faster.',
-      description: 'Use keywords, categories, and content types to discover posts from every active section of the site.',
-      placeholder: 'Search by keyword, topic, category, or title',
+      badge: `Search the ${REFERENCE_LIBRARY}`,
+      title: `Find the reference you need, faster.`,
+      description: `Search by keyword, topic or category across the full library.`,
+      placeholder: `Search titles, topics, keywords`,
     },
-    resultsTitle: 'Latest searchable content',
+    resultsTitle: 'Latest references',
   },
   create: {
     metadata: {
-      title: 'Create',
-      description: 'Create and submit new content for the site.',
+      title: `Contribute to the ${REFERENCE_LIBRARY}`,
+      description: `Submit a guide, report or downloadable resource to the shared ${REFERENCE_LIBRARY}.`,
     },
     locked: {
-      badge: 'Creator access',
-      title: 'Login to create new content.',
-      description: 'Use your account to open the publishing workspace and create posts for the active sections of this site.',
+      badge: 'Sign in to contribute',
+      title: `Sign in to contribute to the ${REFERENCE_LIBRARY}.`,
+      description:
+        'Use your account to open the submission workspace, add a new reference, and track review status.',
     },
     hero: {
-      badge: 'Publishing workspace',
-      title: 'Create content for every active section.',
-      description: 'Choose the content type, add details, and prepare a clean post with images, links, summary, and body content.',
+      badge: 'Contribute a reference',
+      title: `Add a reference to the ${REFERENCE_LIBRARY}.`,
+      description:
+        'Submit a guide, report or downloadable resource. Every submission is reviewed for clarity and citeability before it lands on the shelf.',
     },
-    formTitle: 'Content details',
-    submitLabel: 'Submit content',
-    successTitle: 'Content submitted successfully.',
+    formTitle: 'Reference details',
+    submitLabel: 'Submit reference',
+    successTitle: 'Reference submitted — thank you.',
   },
   auth: {
     login: {
-      metadataDescription: 'Login page for this site.',
+      metadataDescription: `Sign in to the ${REFERENCE_LIBRARY}.`,
       badge: 'Member access',
-      title: 'Welcome back to your publishing space.',
-      description: 'Login to continue browsing, managing submissions, and creating new content from your account.',
-      formTitle: 'Login',
+      title: `Welcome back to the ${REFERENCE_LIBRARY}.`,
+      description: `Sign in to continue browsing, saving and contributing to the library.`,
+      formTitle: 'Sign in',
       submitLabel: 'Continue',
-      noAccount: 'No account matched these details. Create an account first, then login.',
-      success: 'Login successful. Redirecting...',
+      noAccount: 'No account matched these details. Create one first, then sign in.',
+      success: 'Signed in. Redirecting…',
       createCta: 'Create an account',
     },
     signup: {
-      metadataDescription: 'Signup page for this site.',
-      badge: 'Site access',
-      title: 'Create your account and start publishing.',
-      description: 'Create an account to access the publishing workspace, save details, and submit content through the site.',
+      metadataDescription: `Get started with the ${REFERENCE_LIBRARY}.`,
+      badge: 'Get started',
+      title: `Create your account and start referencing.`,
+      description: `Create an account to save references, track your submissions and contribute new resources to the library.`,
       formTitle: 'Create account',
       submitLabel: 'Create account',
       passwordShort: 'Use at least 4 characters for the password.',
-      success: 'Account created successfully. Redirecting...',
-      loginCta: 'Login',
+      success: 'Account created. Redirecting…',
+      loginCta: 'Sign in',
     },
   },
   detailPages: {
     article: {
-      relatedTitle: 'Related articles',
-      fallbackTitle: 'Article details',
+      relatedTitle: 'More reading',
+      fallbackTitle: 'Reference details',
     },
     listing: {
-      relatedTitle: 'Related listings',
-      fallbackTitle: 'Listing details',
+      relatedTitle: 'More entries',
+      fallbackTitle: 'Directory entry',
     },
     image: {
-      relatedTitle: 'Related visuals',
-      fallbackTitle: 'Image details',
+      relatedTitle: 'More visuals',
+      fallbackTitle: 'Visual details',
     },
     profile: {
-      relatedTitle: 'Suggested articles',
-      fallbackDescription: 'Profile details will appear here once available.',
-      visitButton: 'Visit Official Site',
+      // Profile detail page is direct-URL-only and never linked publicly.
+      relatedTitle: 'From this contributor in the library',
+      fallbackDescription: 'Contributor details will appear here once available.',
+      visitButton: 'Visit website',
     },
   },
 } as const
